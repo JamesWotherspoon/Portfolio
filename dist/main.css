@@ -1,1 +1,70 @@
+@font-face {
+  font-family: 'uni sans normal';
+  src: url(15f1137a7976028b0a4f.woff) format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'uni sans bold';
+  src: url(f00da5a0475853fbf3c0.woff) format("woff");
+  font-weight: bold;
+  font-style: normal; }
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style: none; }
+
+body {
+  overflow: hidden;
+  background-color: #ece9e7; }
+
+.sidebar {
+  background-color: #f3f0ed;
+  position: absolute;
+  width: 32%;
+  height: 100vh;
+  -webkit-box-shadow: 10px 0px 10px #afadab;
+          box-shadow: 10px 0px 10px #afadab;
+  z-index: -9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .sidebar hr {
+    width: 70%; }
+  .sidebar h1, .sidebar h2, .sidebar li {
+    font-family: 'uni sans normal';
+    letter-spacing: 3.5px;
+    text-align: center;
+    color: #353131;
+    font-weight: bold; }
+  .sidebar .name {
+    margin: 100px 0 20px 0;
+    font-size: 24px; }
+  .sidebar .job-title {
+    font-size: 20px;
+    margin: 20px 0 0 0; }
+  .sidebar .nav {
+    margin: auto;
+    font-size: 18px; }
+    .sidebar .nav li {
+      margin: 20px;
+      width: 140px;
+      height: 35px;
+      line-height: 35px; }
+      .sidebar .nav li:hover {
+        color: #ece9e7;
+        background-color: black; }
 
