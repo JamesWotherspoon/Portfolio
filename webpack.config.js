@@ -12,9 +12,12 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
+    inline:true,
+    port: 8008,
     contentBase: './dist',
   },
   devtool: 'inline-source-map',
+  watch: true,
   module: {
     rules: [
       {

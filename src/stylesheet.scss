@@ -37,7 +37,7 @@ a {
      display: grid; 
      height: 100vh;
      width: 100vw;
-     grid: repeat(3, 1fr ) / repeat(4, 1fr );
+     grid: 1fr 2fr 1fr / 20vw 1fr 1fr 1fr;
      z-index: -2;
      position: fixed;
      top: 0;
@@ -56,7 +56,7 @@ a {
         animation: slideUp 2s ease;
         @keyframes slideUp{
             0% {
-                top: 1400px;
+                top: -100vh;
             }
             100% {
                 top: 0;
@@ -72,7 +72,7 @@ a {
         animation: slideDown 2s ease;
         @keyframes slideDown{
             0% {
-                top: -1400px;
+                top: 100vh;
             }
             100% {
                 top: 0px;
@@ -90,26 +90,56 @@ a {
         font-weight: bold;
         animation: fade-up-and-in 1s ease 1s backwards;
     }
+    .nav-scroll-bar {
+        grid-area: 2 / 1 / 3 / 2;
+        margin: auto 0 auto 40px;
+        height: 170px;
+        width: 10px;
+        background-color: rgba(255, 255, 255, 0.527);
+        border-radius: 10px;
+
+        animation: fade-up-and-in 1s ease 1s backwards;
+        .scroll-ball {
+            width: 20px;
+            height: 20px;
+            background-color: grey;
+            border-radius: 15px;
+            border: 6px solid black;
+            position: relative;
+            left: -5px;
+        }
+    }
+    .nav-selector {
+        grid-area: 2 / 1 / 3 / 2;
+        span {
+            display: block;
+            position: relative;
+            left: 35px;
+            top: 32px;
+        }
+    }
 
     .nav {
-
         font-family: 'uni-sans normal';
         letter-spacing: 3.5px; 
         font-size: 18px;
         color: $font-color;
         font-weight: bold;
-        width: 120px;
-        grid-area: 3 / 1 / 4 / 2;
+        width: 240px;
+        height: 240px;
+        grid-area: 2 / 1 / 3 / 2;
+        display: inline-block;
+        margin: auto;
         margin: 0 0 0 60px;
-
         li {
             display: inline-block;
-            height: 35px;
-            line-height: 35px;
+            height: 45px;
+            line-height: 45px;
             animation: fade-up-and-in 1s ease 1s backwards;
+            transition: font-size 0.5s;
             &:hover {
                 color:rgb(236, 233, 231);
-                background-color: $font-color;
+                font-size: 42px;
             }
         }
     }
@@ -136,17 +166,17 @@ main {
         height: 100vh;
         width: 100%;
         .github {
-            display: inline-block;
             width: 60px;
             height: auto;
             float: right;
             margin: 20px 20px;
             opacity: 0.6;
             animation: github-fade-in 1s ease 1s backwards;
-            transition: opacity 1s, width 1s;
+            transition: opacity 1s, width 1s, margin 1s;
             &:hover {
                 opacity: 1;
-                width: 100px;
+                width: 80px;
+                margin: 10px 10px;
             }
             @keyframes github-fade-in {
                 0% {
@@ -159,20 +189,13 @@ main {
         
         }
         
-    
-        %message {
+        .message-part-two {
+            
             font-family: 'uni-sans normal';
             letter-spacing: 3.5px; 
             font-size: 58px;
             color: black;
             font-weight: bold;
-            .text-cursor {
-                opacity: 0.6;
-            }
-        }
-        
-        .message-part-two {
-            @extend %message;
             margin: 0px 0 0px 80px;
             width: 550px;
             height: 200px;
@@ -180,78 +203,66 @@ main {
             //background-color: black;
             //color: white;
             padding: 20px;
+            .text-cursor {
+                opacity: 0.6;
+            }
         }
-
     }
 
-    h2 {
-        position: relative;
-        top: 25px;
-        font-family: 'uni-sans bold';
-        letter-spacing: 2px;  
-        font-weight: bold;
-        font-size: 64px;
-        margin: 0 0 0 10px;
-    }
-    
-    .about {
+    %content {
         height: 600px;
         width: 80%;
         margin: 40px auto;
-        
+        h2 {
+            position: relative;
+            top: 25px;
+            font-family: 'uni-sans bold';
+            letter-spacing: 2px;  
+            font-weight: bold;
+            font-size: 64px;
+            margin: 0 0 0 10px;
+        }
         article {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #2a9d8f;
             width: 100%;
             height: 100%;
             padding: 20px;
             border-radius: 5px;
+        }
+        opacity: 0.3;
+        transform: translateY(0vh);
+        transition: opacity 2s, transform 2s;
+        
+        &.in-viewport {
+            opacity: 1;
+            transform: translateY(-10vh);
+        }
+    }
+    
+    
+    .about {
+        @extend %content;
+        article {
+            background-color: #2a9d8f;
         }
     }
     .skills {
-        height: 600px;
-        width: 80%;
-        margin: 80px auto;
-
+        @extend %content;
         article {
-            font-family: Arial, Helvetica, sans-serif;
             background-color: #735d78;
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-            border-radius: 5px;
         }
-
     }
     .projects {
-        height: 600px;
-        width: 80%;
-        margin: 80px auto;
-
+        @extend %content;
         article {
-            font-family: Arial, Helvetica, sans-serif;
             background-color: #e07a5f;
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-            border-radius: 5px;
         }
-
     }
     .contact {
-        height: 600px;
-        width: 80%;
-        margin: 80px auto;
-
+        @extend %content;
         article {
-            font-family: Arial, Helvetica, sans-serif;
             background-color: #457b9d;
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-            border-radius: 5px;
         }
-
     }
 }
 
