@@ -8,29 +8,41 @@ $(function(){
 
         $(function messagePartTwo(){
             
-            const msgPartTwo = `Hi, i'm a front-end web developer, based in london `;
-            const messageArrayPartTwo = msgPartTwo.split('');
-            let $partTwoCursor = $('.message-part-two .text-cursor');
+            const message = `# a front-end web developer # based in london `;
+            const messageArray = message.split('');
+            let $cursor = $('.greeting .text-cursor');
 
-            $partTwoCursor.delay(2100).queue(function(){
+            $cursor.delay(100).queue(function(){
                 $(this).append('|');
                 const toggleCursor = setInterval(() => {
-                    $partTwoCursor.toggle();
+                    $cursor.toggle();
                 }, 500);
                 let i = 0;
-                const printLettersPartTwo = setInterval(() => {
-                    $('.message-part-two .message-letters').append(`${messageArrayPartTwo[i]}`);
+                const printLetters = setInterval(() => {
+                    if(messageArray[i] == '#'){
+                        messageArray[i] = '<br> <br>'
+                    };
+                    $('.greeting .message').append(`${messageArray[i]}`);
                     i++;
-                    if(i == messageArrayPartTwo.length){ 
-                        clearInterval(printLettersPartTwo);
+                    if(i == messageArray.length){ 
+                        clearInterval(printLetters);
                         setTimeout(() => {
                             clearInterval(toggleCursor);
-                            $partTwoCursor.empty();
+                            $cursor.empty();
                         }, 3000);
                     };
                 }, 100);
             });
         })
+    });
+    
+    $(function menu(){
+        $('.burger-menu').on('click', function(){
+            $('nav').toggleClass('menu-open');
+            $('main').toggleClass('menu-open-push');
+        });
+        
+
     });
 
     $(function linkScrolling(){
@@ -51,38 +63,25 @@ $(function(){
             return false;
         });
     });
-    $(window).on('scroll', function(){
-        $('.scroll-in-viewport').each(function(){
-            var topOfElement = $(this).offset().top + 100;
-            var bottomOfScreen = $(window).scrollTop() + $(window).innerHeight();
-            if ((bottomOfScreen > topOfElement) && !($(this).hasClass('in-viewport'))){
-                $(this).addClass('in-viewport');
+    const alpha = function(){
+        const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789#%*&£$';
+        const alphaText = setInterval(() => {
+            for(let i=0; i<7; i++){
+                $(`._${[i]}`).empty().append(alpha[Math.floor(Math.random()*alpha.length)]) 
             };
-        });
-
-        $(window).scrollTop();
-        let top = 0;
-        $('.about').offset().top;
-        $('.skills')
-        $('.projects')
-        $('.contact')
-        let $bottomOfPage = $(document).length - window.innerHeight();
-        
-    });
-    
-    $('.scroll-ball').on('mousedown', function(event){
-        let startPointY = event.pageY;
-        let changeInPointY;
-        let navBarMovement = setInterval(() => {
-            $(document).on('mousemove', function(e){
-                changeInPointY = e.pageY - startPointY;
-                console.log(changeInPointY);
-            });
-            
         }, 100);
-        $(document).on('mouseup', function(){
-            clearInterval(navBarMovement);
-        })    
+        setTimeout(() => {
+            clearTimeout(alphaText);
+        }, 2000);
+    }
+
+
+    $(function(){
+        
+        $(document).on('scroll', function(){
+            $('main_1').addClass('in-view');
+        })
+        
     });
 
 });
