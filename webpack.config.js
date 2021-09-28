@@ -53,7 +53,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Portfolio of James Wotherspoon',
       template: "./src/index.html",
-      filename: "./main.html",
+      filename: "./index.html",
       favicon: "./src/images/favicon.png"
     }),
     new webpack.ProvidePlugin({
