@@ -6,81 +6,331 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Portfolio of James Wotherspoon</title>
-<script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Scheherazade+New&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.png"><script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
 <body>
-    <div class="background-panel" >
-        <div class="left-background">
-
-        </div>
-        <div class="right-background">
-
-        </div>
-    
-        <h1 class="name">
-        James <br> Wotherspoon
-        
-        </h1>
-        <!--
-        <h2 class="job-title">
-        front-end developer
-        </h2> -->
-        <ul class="nav"> 
-            <a href="#home"> <li>Home</li> </a>
-            <a href="#about"> <li>About</li> </a>
-            <a href="#skills"> <li>Skills</li> </a>
-            <a href="#projects"> <li>Projects</li> </a>
-            <a href="#contact"> <li>Contact</li> </a>
-        </ul>
-    </div>
-    <main>
-        <section class="animated-greeting">
-            <a id="home">
-                <a href="https://github.com/JamesWotherspoon?tab=repositories" target="_blank">
-                    <img src="7615be16eed41f806def.png" class="github">
-                </a>
-                <div class="message-part-two">
-                    <span class="message-letters"> </span>
-                    <span class="text-cursor"></span>
+    <header>
+        <nav>
+            <div class="logo-outer-container">
+                <div class="logo-inner-container">
+                    <a href="#home" class="home-nav-link">
+                        <div class="logo-square-outer">
+                        </div>
+                        <h1 class="name">
+                            J<span class="name-last-letters">ames</span> <span class="second-name">W<span class="name-last-letters">otherspoon</span></span>
+                        </h1>
+                    </a>
                 </div>
-            </a>
-        </section>
-        <section class="about scroll-in-viewport">
-            <a id="about">
-                <h2>About.</h2>
-                <article>
-                    I'm excited to join a growing team and eager to learn and develop my skills in the current stack i know and learn new technoligies,
-                    also i'm looking forward to learning about the industry standard and working as part of a team. 
-                    I'd love to work with a cloud based platform like aws or azure, and utilize the tools avaible on these platforms.
+            </div>
+            <div class="menu-list-container">
+                <ul class="menu-list"> 
+                    <li ><a href="#about" class="about-nav-link"> About </a> </li>
+                    <li ><a href="#projects" class="projects-nav-link"> Projects </a> </li>
+                    <li ><a href="#contact" class="contact-nav-link"> Contact </a> </li>
+                </ul>
+                <div class="underline-menu-items">
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+        <!-- <div class="point-line">
+
+        </div> --> 
+        <a id="home">
+            <section class="home">
+                <div class="home-background-image-container">
+                </div>
+                <div class="greeting">
+                    <span class="message"> </span>
+                    <span class="text-cursor"> </span>
+                </div>
+                <!--
+                <div class="scroll-arrow-container">
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="scroll-bubbling-cirlce first-color">
+                    </div>
+                    <div class="scroll-bubbling-cirlce second-color">
+                    </div>
+                    <div class="scroll-bubbling-cirlce third-color">
+                    </div>
+                    <div class="scroll-bubbling-cirlce fourth-color">
+                    </div>
+                    <div class="scroll-bubbling-cirlce fifth-color">
+                    </div>
+                    <div class="scroll-bubbling-cirlce sixth-color">
+                    </div>
+                    <div class="scroll-bubbling-cirlce seventh-color">
+                    </div>
+                    <div class="scroll-bubbling-cirlce eighth-color">
+                    </div>
+                </div>
+                -->
+                <div class="resource-icons">
+                    <div class="icon-container-1">
+                        <i class="fab fa-github-square icon-1"></i>
+                    </div>
+                    <div class="icon-container-2">
+                        <i class="fab fa-linkedin icon-2"></i>
+                    </div>
+                    <div class="">
+                        <i class="fas fa-file-download icon-3"></i>
+                    </div>
+                </div>
+            </section>
+        
+        </a>
+        <a id="about">
+            <section class="about">
+                <article class="about-content">
+                    <h2>About.</h2>
+                    <div class="about-me">
+                        <p>
+                            In March 2021 I decided I wanted a change. I've been learning html, css, Javascript, React and Jquery 
+                            for 5 months now and I am keen to put what i've learnt into practice and continue to learn in a more 
+                            structured enviroment. Self taught with stackoverflow, codeacemdemy, Jon duckett html, css and 
+                            javascript series, mozilla, w3 consortium, youtube and many more websites.
+                            <br>
+                            <br>
+                            team and independent working
+                            very interested in devloping my skills in design, react, jquery, team working, cloud platforms and node.js
+                            <br>
+                            <br>
+                            Download CV
+                        </p>
+                        <img  class="profile-pic" src="8b7513fcc5ae311113c1.JPG" alt="photo of author">
+                    </div>
                 </article>
-            </a>
-        </section>
-        <section class="skills scroll-in-viewport">
-            <a id="skills">
+                <!--
+                <img src='./images/profile.jpg' alt='profile picture'  class="profile-pic"/>
+                -->
+                <article class="about-tech-article">
+                    <div class="technology-container">
+                        <div class="skill-tech-container">
+                            <div class="technology-logo-container">
+                                <img src='e97cd3ce651b48ae92e1.jpg' class="technology-logo html-logo" alt='html logo' />
+                            </div>
+                            <h4>Html</h4>
+                        </div>
+                        <div class="skill-tech-container">
+                            <div class="technology-logo-container">
+                                <img src='5513184952146afffb27.png' class="technology-logo css-logo" alt='css logo' />
+                            </div>
+                            <h4>CSS</h4>
+                        </div>
+                        <div class="skill-tech-container">
+                            <div class="technology-logo-container">
+                                <img src='6747d5c68a381e29fc69.png' class="technology-logo scss-logo" alt='scss logo' />
+                            </div>
+                            <h4>Sass</h4>
+                        </div>
+                        <div class="skill-tech-container">
+                            <div class="technology-logo-container">
+                                <img src='53f31203a8686c0b6b54.jpg' class="technology-logo javascript-logo" alt='Javascript logo' />
+                            </div>
+                            <h4>Javascript</h4>
+                        </div>
+                        <div class="skill-tech-container">
+                            <div class="technology-logo-container">
+                                <img src='0bcc2a2f079171db4538.png' class="technology-logo jquery-logo" alt='jquery logo' />
+                            </div>
+                            <h4>JQuery</h4>
+                        </div>
+                        <div class="skill-tech-container">
+                            <div class="technology-logo-container">
+                                <img src='f0faeafb3e2564931066.jpg' class="technology-logo react-logo" alt='react logo' />
+                            </div>
+                            <h4>React</h4>
+                        </div>
+                        <div class="skill-tech-container">
+                            <div class="technology-logo-container">
+                                <img src='47692505d122dbcae490.png' class="technology-logo webpack-logo" alt='webpack logo' />
+                            </div>
+                            <h4>Webpack</h4>
+                        </div>
+                        <div class="skill-tech-container">
+                            <div class="technology-logo-container">
+                                <img src='c67e6b312e2fd67c0a09.png' class="technology-logo git-logo" alt='webpack logo' />
+                            </div>
+                            <h4>Git</h4>
+                        </div>
+                    </div>
+                    <div class="skills-summary-text">
+                        <h5>
+                            Restfull Api's, Dynamic design & Cross Browser compatibillity
+                        </h5>
+                    </div>
+                </article>
+            
+            </section>
+        </a>
+        <!--
+        <a id="skills">
+            <section class="skills">
                 <h2>Skills.</h2>
-                <article>
-
+                
+            </section>
+        </a>
+        -->
+        <hr>
+        <a id="projects">
+            <section class="projects">
+                <h2 class="projects-title">Projects.</h2>
+                <article class="project-one-container">
+                    <div class='project-image-container project-one-image-container'>
+                        <a href="">
+                            <img src='9052496d7a88fad1b32f.png' alt='Homepage Project' class="project-image"/>
+                        </a>
+                        <div class="project-top-layer">
+                            <div class="project-follow-link-button">
+                                <h3>View project </h3>
+                                <div class="project-arrow-container">
+                                    <div class="arrow-body"></div>
+                                    <div class="arrow-head"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='project-summary'>
+                        <a href=''>
+                            <h5>React Application - Homepage </h5>
+                        </a>
+                        <ul>
+                            <li>Designed to simply bring together functionallity for a browser hompage</li>
+                            <li> Two restful Api's ?? cached data to reduce calling, one was not licesenced to be cahced </li>
+                            <li></li>
+                        </ul>
+                    </div>
                 </article>
-            </a>
-        </section>
-        <section class="projects scroll-in-viewport">
-            <a id="projects">
-                <h2>Projects.</h2>
-                <article>
-
+                <article class="project-two-container">
+                    <div class='project-image-container project-two-image-container'>
+                        <a href="">
+                            <img src='cf5167b6e357bf122223.png' alt='Homepage Project' class="project-image"/>
+                        </a>
+                        <div class="project-top-layer">
+                            <div class="project-follow-link-button">
+                                <h3>View project </h3>
+                                <div class="project-arrow-container">
+                                    <div class="arrow-body"></div>
+                                    <div class="arrow-head"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='project-summary'>
+                        <a href=''>
+                            <h5>React Application - Homepage </h5>
+                        </a>
+                        <ul>
+                            <li>Designed to simply bring together functionallity for a browser hompage</li>
+                            <li> Two restful Api's ?? cached data to reduce calling, one was not licesenced to be cahced </li>
+                            <li></li>
+                        </ul>
+                    </div>
                 </article>
-            </a>
-        </section>
-        <section class="contact scroll-in-viewport">
-            <a id="contact">
+            </section>
+        </a>
+        <hr>
+        <a id="contact">
+            <section class="contact">
                 <h2>Contact.</h2>
-                <article>
 
+                <article>
+                    <form class="feedback-form">
+                        <div class="form-entry-top-container">
+                            <div class="feedback-submitter-details-container">
+                                <input type="email" id="email" placeholder="E-mail"/>
+                                <input type="text" id="company" placeholder="Your Company" />
+                            </div>
+                            <div class="list-skills-feedback">
+                                <h4>What area would you like imporved?</h4>
+                                <div>
+                                    <input type="checkbox" id='css' value='css'/>
+                                    <label for='css' >CSS</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id='javascript' value='javascript' />
+                                    <label for='javascript' >Javascript</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id='jquery' value='jquery' />
+                                    <label for='jquery' >Jquery</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id='react' value='react' />
+                                    <label for='react' >React</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id='design' value='design' />
+                                    <label for='design' >Design</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id='quality-of-code' value='quality-of-code' />
+                                    <label for='quality-of-code' >Quality of Code</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id='complexity-of-code' value='complexity-of-code' />
+                                    <label for='complexity-of-code' >Complexity of Code</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id='performance' value='performance' />
+                                    <label for='performance' >Performance</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id='amount-of-projects' value='projects' />
+                                    <label for='amount-of-projects' >Amount of Projects</label>
+                                </div>
+                            </div>
+                        </div>
+                        <textarea id="feedback-textarea" placeholder="Any other feeback would be really appreciated"></textarea>                      
+              
+                        <button type="submit" >Send</button>
+                   </form>
                 </article>
-            </a>
-        </section>
+            </section>
+        </a>
+        <footer>
+            <div class="scroll-top-arrow-container">
+                <div class="first-arrow footer-arrow"></div>
+                <div class="second-arrow footer-arrow"></div>
+                <div class="third-arrow footer-arrow"></div>
+            </div>
+            <h6>
+                <i class="far fa-copyright"></i> 
+                 James Wotherspoon  
+                <i class="fas fa-circle footer-midline-dot"></i> 
+                2021
+                <i class="fas fa-circle footer-midline-dot"></i> 
+            </h6>
+        </footer>
     </main>
+    <!--
+    <div class="background">
+        <div class="fixed">
+
+            <div class="panel-one">
+                
+            </div>
+            <div class="panel-two">
+     
+            </div>
+            <div class="panel-three"> 
+               
+            </div>
+        </div>
+    </div>
+-->
     
    
-
 </body>
+<script src="https://kit.fontawesome.com/014e379113.js" crossorigin="anonymous">
+</script>
+<script> </script>
+
 </html>

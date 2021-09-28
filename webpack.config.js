@@ -17,7 +17,6 @@ module.exports = {
     contentBase: './dist',
   },
   devtool: 'inline-source-map',
-  watch: true,
   module: {
     rules: [
       {
@@ -53,7 +52,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Portfolio of James Wotherspoon',
       template: "./src/index.html",
-      filename: "./main.html"
+      filename: "./main.html",
+      favicon: "./src/images/favicon.png"
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
