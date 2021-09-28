@@ -969,3 +969,15 @@ footer {
     }
   }
 }
+
+
+::-webkit-scrollbar {
+  width: 17px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(241, 241, 241); 
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(179, 179, 179);
+  border-radius: 10px;
+}
