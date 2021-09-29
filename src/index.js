@@ -36,28 +36,23 @@ $(function animatedGreeting(){
     })
 });
 
-// next page scroll arrow 
-$('.scroll-arrow-container').on('mouseenter', triggerHover)
-function triggerHover(){
-    if( $('.scroll-arrow-container').hasClass('hover') ) return 
-    $('.scroll-arrow-container').addClass('hover');
-    $('.scroll-arrow-container').on('mouseleave', removeHover);
+// fade up when scrolled into view
+let elementsToFade = [];
+for(let i=0; i < $('.will-fade').length; i++){
+    elementsToFade.push($(`.will-fade:eq(${i})`).offset().top);
 }
-function removeHover(){
-    $('.scroll-arrow-container').removeClass('hover');
+
+fadeUpElements();
+function fadeUpElements(){
+    let viewportBottom20 = $(window).scrollTop() + ($(window).height() * 0.8);
+    
+    elementsToFade.forEach((elementOffset, index)=> {
+        if(elementOffset < viewportBottom20 ){
+            $(`.will-fade:eq(${index})`).addClass('fade-up')
+        }
+    })
 }
-setTimeout( () => {
-    if($(window).scrollTop() === 0){
-        triggerHover()
-        setTimeout( () => removeHover(), 10000);
-    } 
-}, 4000);
-// click on scroll arrow trigger scroll
-$('.scroll-arrow-container').on('click', function(){
-    $('html').animate({
-        scrollTop: $('#about').offset().top 
-    }, 500);
-})
+$(document).on('scroll', fadeUpElements)
 
 // nav display different when document scrolled
 
@@ -97,49 +92,34 @@ function underlineNavOption(){
     if(timeOutRefractory) return 
     timeOutRefractory = true;
     setTimeout(()=> {
-        let $viewportMiddle = $(window).scrollTop() + $(window).height()/1.7;
+        let $viewportMiddle = $(window).scrollTop() + ($(window).height() * 0.5);
         
         if($('.home').height() > $viewportMiddle){
             $('.underline-menu-items').css({opacity: '0'});
         } else if( ($viewportMiddle > $('.about').offset().top) && ( $viewportMiddle < $('.projects').offset().top)){
-            $('.underline-menu-items').css({left: $('.about-nav-link').offset().left, width: $('.about-nav-link').width(), opacity: '1'});
+            $('.underline-menu-items').css({left: $('.about-nav-link').position().left, width: $('.about-nav-link').width(), opacity: '1'});
             
         } else if($('.projects').offset().top < $viewportMiddle && !($('.contact').offset().top < $viewportMiddle)){
-            $('.underline-menu-items').css({left: $('.projects-nav-link').offset().left, width: $('.projects-nav-link').width()});
+            $('.underline-menu-items').css({left: $('.projects-nav-link').position().left, width: $('.projects-nav-link').width(), opacity: '1'});
             
         } else if($('.contact').offset().top < $viewportMiddle){
-            $('.underline-menu-items').css({left: $('.contact-nav-link').offset().left, width: $('.contact-nav-link').width()});
-            
+            $('.underline-menu-items').css({left: $('.contact-nav-link').position().left, width: $('.contact-nav-link').width(), opacity: '1'});
         }
         timeOutRefractory = false;
     }, ($('.underline-menu-items').css('opacity') == 0) ? 400 : 100)
 }
-
+console.log($('.contact-nav-link').position().left)
 
 // handle nav option click
-$('a[href^="#"]').on('click', linkScrolling)
+$('.nav-link').on('click', linkScrolling)
 
 function linkScrolling(){
 
-    let $linkDestination = $( $(this).attr('href') );
-    $(window).scrollTop($linkDestination.offset().top);
+    let $linkDestination =  $($(this).data('link')).offset().top ;
+    $(window).scrollTop($linkDestination);
+
     underlineNavOption()
 }
-
-
-$(document).on('scroll', function(){
-    let $viewportMiddle = $(window).scrollTop() + $(window).height()/2;
-
-    if($('.about').offset().top < $viewportMiddle){
-        $('.about').addClass('slide-in');
-    }
-    if($('.projects').offset().top < $viewportMiddle){
-        $('.projects').addClass('slide-in');
-    }
-    if($('.contact').offset().top < $viewportMiddle){
-        $('.contact').addClass('slide-in');
-    }
-});
 
 // about section js
 $('.view-cv-link').on('click', openCvOptions);
@@ -148,10 +128,33 @@ function openCvOptions(){
     
 }
 
-// project section js 
-$('.project-follow-link-button').on('mouseenter', function(){
-    console.log('hiver')
-    $(this).addClass('hover');
+// project section js
+let buttonPercentBackground = 0;
+let buttonBackgroundSlideUp;
+let buttonBackgroundSlideDown;
+$('.project-follow-link-button').on({
+    mouseenter: function(){
+        clearInterval(buttonBackgroundSlideDown)
+
+        buttonBackgroundSlideUp = setInterval(() => {
+            buttonPercentBackground += 3;
+            $(this).css({background: `linear-gradient(90deg, rgb(238, 238, 238) ${buttonPercentBackground}%, rgb(12, 12, 12) 0%)`});
+            if(buttonPercentBackground >= 100){
+                clearInterval(buttonBackgroundSlideUp)
+            }
+        }, 1);
+    },
+    mouseleave: function(){
+        clearInterval(buttonBackgroundSlideUp)
+
+        buttonBackgroundSlideDown = setInterval(() => {
+            buttonPercentBackground -= 3;
+            $(this).css({background: `linear-gradient(90deg, rgb(238, 238, 238) ${buttonPercentBackground}%, rgb(12, 12, 12) 0%)`});
+            if(buttonPercentBackground <= 0){
+                clearInterval(buttonBackgroundSlideDown)
+            }
+        }, 1);
+    }
 });
 
 $('.project-one-image-container').on('click', projectOneOpen);
@@ -245,7 +248,14 @@ $(document).on('scroll', function(){
 
 })
 
+// nav 
+
+
 // back to top button 
 $('.scroll-top-arrow-container').on('click', function(){
     $(window).scrollTop(0);
+})
+
+$(function(){
+    $('.logo-inner-container').addClass('on-load-expand');
 })
