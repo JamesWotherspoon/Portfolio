@@ -5,8 +5,8 @@ import $ from 'jquery';
 
 $(function animatedGreeting(){
     $(function messagePartTwo(){
-        
-        const message = `A Front-end developer #Based in London`;
+        const smallViewportPrefix = (window.innerWidth < 950) ? `Hi, I'm James#` : '';
+        const message = `${smallViewportPrefix}A Front-end developer #Based in London`;
         const messageArray = message.split('');
         let $cursor = $('.greeting .text-cursor');
 
@@ -44,10 +44,10 @@ for(let i=0; i < $('.will-fade').length; i++){
 
 fadeUpElements();
 function fadeUpElements(){
-    let viewportBottom20 = $(window).scrollTop() + ($(window).height() * 0.8);
+    let viewportBottom10 = $(window).scrollTop() + ($(window).height() * 0.9);
     
     elementsToFade.forEach((elementOffset, index)=> {
-        if(elementOffset < viewportBottom20 ){
+        if(elementOffset < viewportBottom10 ){
             $(`.will-fade:eq(${index})`).addClass('fade-up')
         }
     })
@@ -83,6 +83,7 @@ function determineSearchBarExtended(onLoad){
 
 let timeOutRefractory = false;
 $(document).on('scroll', underlineNavOption);
+$(window).on('resize', underlineNavOption);
 
 setTimeout(() => {
     underlineNavOption();
@@ -108,7 +109,6 @@ function underlineNavOption(){
         timeOutRefractory = false;
     }, ($('.underline-menu-items').css('opacity') == 0) ? 400 : 100)
 }
-console.log($('.contact-nav-link').position().left)
 
 // handle nav option click
 $('.nav-link').on('click', linkScrolling)
@@ -121,12 +121,6 @@ function linkScrolling(){
     underlineNavOption()
 }
 
-// about section js
-$('.view-cv-link').on('click', openCvOptions);
-
-function openCvOptions(){
-    
-}
 
 // project section js
 let buttonPercentBackground = 0;
@@ -197,10 +191,18 @@ $('.feedback-form').on('submit', (event) => {
     })
 })
 
-// determine icon color 
+// external resource icons
+$('.fa-github-square').on('click', function(){
+    window.open('https://github.com/JamesWotherspoon?tab=repositories');
+})
+$('.fa-linkedin').on('click', function(){
+    window.open('https://jameswotherspoon.github.io/airbnb_clone/');
+})
+$('.fa-file-download').on('click', )
+
 $(document).on('scroll', function(){
     let iconThreeBottom = $('.icon-3').offset().top;
-    let iconTwoBottom = $('.icon-2').offset().top;
+    //let iconTwoBottom = $('.icon-2').offset().top;
     let iconOneBottom = $('.icon-1').offset().top;
 
     let homeBottom = $('.home').offset().top + $('.home').height();
@@ -211,9 +213,6 @@ $(document).on('scroll', function(){
     if(iconThreeBottom < homeBottom){
         $('.icon-3').css({ color: 'white'});
     }
-    if(iconTwoBottom < homeBottom){
-        $('.icon-2').css({ color: 'white'});
-    }
     if(iconOneBottom < homeBottom){
         $('.icon-1').css({ color: 'white'});
     }
@@ -221,18 +220,12 @@ $(document).on('scroll', function(){
     if(iconThreeBottom > homeBottom){
         $('.icon-3').css({ color: 'black'});
     }
-    if(iconTwoBottom > homeBottom){
-        $('.icon-2').css({ color: 'black'});
-    }
     if(iconOneBottom > homeBottom){
         $('.icon-1').css({ color: 'black'});
     }
 
     if(iconThreeBottom > aboutTechTop){
         $('.icon-3').css({ color: 'white'});
-    }
-    if(iconTwoBottom > aboutTechTop){
-        $('.icon-2').css({ color: 'white'});
     }
     if(iconOneBottom > aboutTechTop){
         $('.icon-1').css({ color: 'white'});
@@ -244,8 +237,6 @@ $(document).on('scroll', function(){
     if(footerTop < 0){
         $('.resource-icons').css({position: 'fixed'})
     }
-
-
 })
 
 // nav 
