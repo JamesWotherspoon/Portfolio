@@ -51,9 +51,15 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Portfolio of James Wotherspoon',
+      title: 'James Wotherspoon',
       template: "./src/index.html",
       filename: "./index.html",
+      favicon: "./src/images/favicon.png"
+    }),
+    new HtmlWebpackPlugin({
+      title: 'James Wotherspoon',
+      template: "./src/cv.html",
+      filename: "./cv.html",
       favicon: "./src/images/favicon.png"
     }),
     new webpack.ProvidePlugin({

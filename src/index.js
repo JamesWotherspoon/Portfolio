@@ -121,7 +121,13 @@ function linkScrolling(){
     underlineNavOption()
 }
 
+// about 
+$('.about-cv-link').on('click', openCv);
+$('.view-cv-icon').on('click', openCv);
 
+function openCv(){
+    window.open('./cv.html', '_self')
+}
 // project section js
 let buttonPercentBackground = 0;
 let buttonBackgroundSlideUp;
@@ -165,16 +171,13 @@ function projectTwoOpen(){
     window.open('https://jameswotherspoon.github.io/airbnb_clone/');
 }
 
+// contact
 
-$('.feedback-form').on('submit', (event) => {
+$('.contact-form').on('submit', (event) => {
     event.preventDefault();    
-    console.log('ajax triggered')
-    let emailValue = $('#email').val()
-    let companyValue = $('#company').val()
-    let skillsToImprove = $('input[type=checkbox]:checked').map(() => {
-        return $(this).val()
-        })
-    let feedbackValue = $('#feedback-textarea').val()
+    let emailValue = $('#email').val();
+    let nameValue = $('#name').val();
+    let textareaValue = $('#contact-textarea').val();
 
     $.ajax({
         url: "https://formsubmit.co/ajax/baf6f2f077f9f8497948a7d66fd2092e",
@@ -182,12 +185,23 @@ $('.feedback-form').on('submit', (event) => {
         dataType: "json",
         data: {
             email: emailValue,
-            company: companyValue,
-            skillsToImprove: skillsToImprove,
-            moreFeedback: feedbackValue
+            name: nameValue,
+            textarea: textareaValue
         },
-        success: (data) => console.log(data),
-        error: (err) => console.log(err)
+        success: () => {
+            $('.contact-form')[0].reset();
+            $('.contact-form-overlay').css('display', 'flex').text('Your message has been sent');
+            setTimeout(()=> {
+                $('.contact-form-overlay').css('display', 'none');
+            }, 3000);
+        },
+        error: (err) => {
+            $('.contact-form')[0].reset();
+            $('.contact-form-overlay').empty().css('display', 'flex').html('Your message was not successfull <br><br> Please contact me directly at <br><br> james.t.wotherspoon@gmail.com');
+            setTimeout(()=> {
+                $('.contact-form-overlay').css('display', 'none');
+            }, 12000);
+        }
     })
 })
 
@@ -198,7 +212,6 @@ $('.fa-github-square').on('click', function(){
 $('.fa-linkedin').on('click', function(){
     window.open('https://jameswotherspoon.github.io/airbnb_clone/');
 })
-$('.fa-file-download').on('click', )
 
 $(document).on('scroll', function(){
     let iconThreeBottom = $('.icon-3').offset().top;
@@ -209,38 +222,31 @@ $(document).on('scroll', function(){
     let aboutTechTop = $('.about-tech-article').offset().top;
     let footerTop = ($(window).scrollTop() + $(window).height()) - $('footer').offset().top;
 
-
     if(iconThreeBottom < homeBottom){
         $('.icon-3').css({ color: 'white'});
     }
     if(iconOneBottom < homeBottom){
         $('.icon-1').css({ color: 'white'});
     }
-
     if(iconThreeBottom > homeBottom){
         $('.icon-3').css({ color: 'black'});
     }
     if(iconOneBottom > homeBottom){
         $('.icon-1').css({ color: 'black'});
     }
-
     if(iconThreeBottom > aboutTechTop){
         $('.icon-3').css({ color: 'white'});
     }
     if(iconOneBottom > aboutTechTop){
         $('.icon-1').css({ color: 'white'});
     }
-
     if(footerTop > 0){
-        $('.resource-icons').css({position: 'absolute'})
+        $('.resource-icons').css({position: 'absolute', bottom: '120px'})
     }
     if(footerTop < 0){
-        $('.resource-icons').css({position: 'fixed'})
+        $('.resource-icons').css({position: 'fixed', bottom: '0px'})
     }
 })
-
-// nav 
-
 
 // back to top button 
 $('.scroll-top-arrow-container').on('click', function(){
