@@ -1,6 +1,7 @@
 import html from './index.html';
 import "./stylesheet.scss";
 import $ from 'jquery';
+import "../modernizr";
 
 
 $(function animatedGreeting(){
