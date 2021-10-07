@@ -10,7 +10,7 @@ module.exports = {
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: 'https://jameswotherspoon.github.io/Portfolio/'
+    publicPath: 'https://www.jameswotherspoon.com'
   },
   devServer: {
     inline:true,
