@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/JamesWotherspoon/Portfolio/issues"
   },
-  "homepage": "https://www.jameswotherspoon.com",
+  "homepage": "https://www.jameswotherspoon.com/",
   "devDependencies": {
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.1",
