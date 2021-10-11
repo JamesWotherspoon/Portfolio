@@ -295,6 +295,11 @@ main {
   align-items: stretch;
   flex-direction: column;
 
+  .section-title {
+    font-family: "roboto", sans-serif;
+    font-weight: bold;
+  }
+
   section {
     width: 100%;
     height: auto;
@@ -572,10 +577,6 @@ main {
   gap: 100px 0;
   background-color: black;
   color: white;
-  .projects-title {
-    margin: 0 0 0 0;
-    color: white;
-  }
 
   .project-one-container {
     width: 100%;
@@ -742,6 +743,7 @@ main {
         list-style: none;
         font-style: italic;
         color: grey;
+        font-size: 16px;
       }
     }
   }
