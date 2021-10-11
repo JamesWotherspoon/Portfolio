@@ -1,18 +1,18 @@
 @font-face {
   font-family: 'uni-sans-thin';
-  src: url(https://www.jameswotherspoon.com867eb27a02c43d99c676.woff) format("woff");
+  src: url(https://www.jameswotherspoon.com/867eb27a02c43d99c676.woff) format("woff");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'uni-sans-thin-caps';
-  src: url(https://www.jameswotherspoon.com15f1137a7976028b0a4f.woff) format("woff");
+  src: url(https://www.jameswotherspoon.com/15f1137a7976028b0a4f.woff) format("woff");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'uni-sans-heavy-caps';
-  src: url(https://www.jameswotherspoon.comf00da5a0475853fbf3c0.woff) format("woff");
+  src: url(https://www.jameswotherspoon.com/f00da5a0475853fbf3c0.woff) format("woff");
   font-weight: bold;
   font-style: normal; }
 
@@ -335,10 +335,10 @@ main {
     font-family: 'uni-sans-thin'; }
 
 .no-webp .home-background-image-container {
-  background-image: url(https://www.jameswotherspoon.com8b27056fc54b68e89cb6.jpg); }
+  background-image: url(https://www.jameswotherspoon.com/8b27056fc54b68e89cb6.jpg); }
 
 .webp .home-background-image-container {
-  background-image: url(https://www.jameswotherspoon.com08ba123fa1f94c2b0219.webp); }
+  background-image: url(https://www.jameswotherspoon.com/08ba123fa1f94c2b0219.webp); }
 
 .about {
   width: 100%;
