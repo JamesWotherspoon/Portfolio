@@ -1,41 +1,39 @@
-import html from './index.html';
+
 import "./stylesheet.scss";
 import $ from 'jquery';
 import "../modernizr";
 
 
-$(function animatedGreeting(){
-    $(function messagePartTwo(){
-        const smallViewportPrefix = (window.innerWidth < 950) ? `Hi, I'm James#` : '';
-        const message = `${smallViewportPrefix}A Front-end developer #Based in London`;
-        const messageArray = message.split('');
-        let $cursor = $('.greeting .text-cursor');
+$(function greetingMessage(){
+    const smallViewportPrefix = (window.innerWidth < 950) ? `Hi, I'm James#` : '';
+    const message = `${smallViewportPrefix}A Front-end developer #Based in London`;
+    const messageArray = message.split('');
+    let $cursor = $('.greeting .text-cursor');
 
-        $cursor.delay(100).queue(function(){
-            $(this).append('|');
+    $cursor.delay(100).queue(function(){
+        $(this).append('|');
 
-            const toggleCursor = setInterval(() => {
-                $cursor.toggle();
-            }, 500);
-            let i = 0;
+        const toggleCursor = setInterval(() => {
+            $cursor.toggle();
+        }, 500);
+        let i = 0;
 
-            const printLetters = setInterval(() => {
-                if(messageArray[i] == '#'){
-                    messageArray[i] = '<br> <br>'
-                };
-                $('.greeting .message').append(`${messageArray[i]}`);
-                i++;
-                if(i == messageArray.length){ 
-                    clearInterval(printLetters);
-                    setTimeout(() => {
-                        clearInterval(toggleCursor);
-                        $cursor.empty();
-                    }, 2000);
-                };
-            }, 60);
-        });
-    })
-});
+        const printLetters = setInterval(() => {
+            if(messageArray[i] == '#'){
+                messageArray[i] = '<br> <br>'
+            };
+            $('.greeting .message').append(`${messageArray[i]}`);
+            i++;
+            if(i == messageArray.length){ 
+                clearInterval(printLetters);
+                setTimeout(() => {
+                    clearInterval(toggleCursor);
+                    $cursor.empty();
+                }, 2000);
+            };
+        }, 60);
+    });
+})
 
 // fade up when scrolled into view
 let elementsToFade = [];
